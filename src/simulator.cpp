@@ -13,17 +13,17 @@ void Simulator::changeTimestep(const double newTimestep) {
 Simulator::Simulator(const double initTimestep) {
 	timestep = initTimestep;
 	time = 0.0;
-	// Testing with a particle starting at the origin moving right with mass 1	
-	Particle a = Particle({1, 0.01, 0.0}, {-0.1, 0.0, 0.0}, 1.0);
-	Particle b = Particle({0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, 1.0);
-	particles.push_back(a); 
+	// Testing with a particle starting at the origin moving right with mass 1
+	auto a = Particle({1, 0.01, 0.0}, {-0.1, 0.0, 0.0}, 1.0);
+	auto b = Particle({0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, 1.0);
+	particles.push_back(a);
 	particles.push_back(b);
 }
 
 void Simulator::next() {
 	//TODO: multithread this calculation
 	//pre force calculation update
-	for(Particle &x : particles) {
+	for(auto &x : particles) {
 		x.update1(timestep);
 	}
 	//force calculation

@@ -3,7 +3,7 @@
 #include "particle.h"
 
 
-Particle::Particle(const std::array<double, 3> initPosition, const std::array<double, 3> initVelocity, const double initMass) {
+Particle::Particle(const std::array<double, 3> &initPosition, const std::array<double, 3> &initVelocity, const double initMass) {
 	velocity = initVelocity;
 	position = initPosition;
 	mass = initMass;
@@ -22,7 +22,7 @@ void Particle::updatePosition(const double timestep) {
 	}
 }
 
-void Particle::updateAcceleration(const std::array<double, 3> force) {
+void Particle::updateAcceleration(const std::array<double, 3>& force) {
 	for(int i = 0; i < 3; i++) {
 		acceleration[i] = force[i] / mass;
 	}
@@ -41,11 +41,11 @@ void Particle::update1(const double timestep) {
 	updatePosition(timestep);
 }
 
-void Particle::update2(const double timestep, const std::array<double, 3> force) {
+void Particle::update2(const double timestep, const std::array<double, 3>& force) {
 	updateAcceleration(force);
 	updateHalfVelocity(timestep);
 }
 
 void Particle::printData() const {
-	std::cout << position[0] << " " << position[1] << " " << position[2] << std::endl; 
+	std::cout << position[0] << " " << position[1] << " " << position[2] << std::endl;
 }
