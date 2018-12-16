@@ -1,4 +1,5 @@
 #include <array>
+#include <string>
 #include <iostream>
 #include "particle.hpp"
 
@@ -46,6 +47,13 @@ void Particle::update2(const double timestep, const std::array<double, 3>& force
 	updateHalfVelocity(timestep);
 }
 
-void Particle::printData() const {
-	std::cout << position[0] << " " << position[1] << " " << position[2] << std::endl;
+std::string Particle::printData() const {
+    std::string output = std::to_string(mass) + " ";
+	for(double x : position) {
+        output += std::to_string(x) + " ";
+	}
+    for(double x : velocity) {
+        output += std::to_string(x) + " ";
+	}
+	return output;
 }

@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1544919582 source:c:\users\jason\documents\programming\gravitysim\src\forces.cpp
+	"forces.hpp"
+	"particle.hpp"
+	<cmath>
+
+1544919548 c:\users\jason\documents\programming\gravitysim\include\forces.hpp
+	<array>
+	"particle.hpp"
+
+1544994883 c:\users\jason\documents\programming\gravitysim\include\particle.hpp
+	<string>
+	<array>
+
+1544995338 source:c:\users\jason\documents\programming\gravitysim\src\particle.cpp
+	<array>
+	<string>
+	<iostream>
+	"particle.hpp"
+

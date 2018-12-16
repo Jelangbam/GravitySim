@@ -1,6 +1,6 @@
 #ifndef PARTICLE_HPP
 #define PARTICLE_HPP
-
+#include <string>
 #include <array>
 class Particle {
 	private:
@@ -34,8 +34,8 @@ class Particle {
 		 */
 		void update2(const double timestep, const std::array<double, 3>& force);
 		/**
-		 * Prints the particle's location to console, used primarily for debugging purposes
+		 * Prints the particle's location
 		 */
-		void printData() const;
+		std::string printData() const;
 };
 #endif //Particle_HPP

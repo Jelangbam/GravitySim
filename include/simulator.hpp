@@ -1,6 +1,6 @@
 #ifndef SIMULATOR_HPP
 #define SIMULATOR_HPP
-
+#include <fstream>
 #include <vector>
 #include "particle.hpp"
 
@@ -8,6 +8,7 @@ class Simulator {
 	private:
 		double timestep;
 		std::vector<Particle> particles;
+		std::ofstream outputFile;
 		double time;
 	public:
 	    /**
@@ -28,5 +29,9 @@ class Simulator {
 		 * Returns the current time in the simulation
 		 */
 		double getTime() const;
+		/**
+		 * Writes current state of simulation to file
+		 */
+		void writeOutput();
 };
 #endif // SIMULATOR_HPP
