@@ -24,5 +24,9 @@ class Simulator {
 		 * Returns the array of particles at the current time
 		 */
 		std::vector<Particle> getState() const;
+		/**
+		 * Returns the current time in the simulation
+		 */
+		double getTime() const;
 };
 #endif // SIMULATOR_HPP

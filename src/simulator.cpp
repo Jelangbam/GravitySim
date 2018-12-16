@@ -47,6 +47,9 @@ void Simulator::next() {
 	}
 }
 
+double Simulator::getTime() const {
+    return time;
+}
 std::vector<Particle> Simulator::getState() const {
 	return particles;
 }
