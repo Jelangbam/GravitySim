@@ -1,5 +1,5 @@
-#include "forces.h"
-#include "particle.h"
+#include "forces.hpp"
+#include "particle.hpp"
 #include <cmath>
 #define FORCE_CONSTANT 1
 namespace forces {

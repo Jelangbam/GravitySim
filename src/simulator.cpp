@@ -2,9 +2,9 @@
 #include <fstream>
 #include <vector>
 #include <array>
-#include "simulator.h"
-#include "particle.h"
-#include "forces.h"
+#include "simulator.hpp"
+#include "particle.hpp"
+#include "forces.hpp"
 
 void Simulator::changeTimestep(const double newTimestep) {
 	timestep = newTimestep;

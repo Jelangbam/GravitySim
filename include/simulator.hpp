@@ -1,8 +1,8 @@
-#ifndef SIMULATOR_H
-#define SIMULATOR_H
+#ifndef SIMULATOR_HPP
+#define SIMULATOR_HPP
 
 #include <vector>
-#include "particle.h"
+#include "particle.hpp"
 
 class Simulator {
 	private:
@@ -25,4 +25,4 @@ class Simulator {
 		 */
 		std::vector<Particle> getState() const;
 };
-#endif
+#endif // SIMULATOR_HPP

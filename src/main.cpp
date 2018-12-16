@@ -1,6 +1,6 @@
 #include <vector>
-#include "simulator.h"
-#include "particle.h"
+#include "simulator.hpp"
+#include "particle.hpp"
 
 int main() {
 	auto test = Simulator(0.01);

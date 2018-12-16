@@ -1,6 +1,6 @@
 #include <array>
 #include <iostream>
-#include "particle.h"
+#include "particle.hpp"
 
 
 Particle::Particle(const std::array<double, 3> &initPosition, const std::array<double, 3> &initVelocity, const double initMass) {

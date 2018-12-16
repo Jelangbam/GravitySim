@@ -1,5 +1,5 @@
-#ifndef PARTICLE_H
-#define PARTICLE_H
+#ifndef PARTICLE_HPP
+#define PARTICLE_HPP
 
 #include <array>
 class Particle {
@@ -38,4 +38,4 @@ class Particle {
 		 */
 		void printData() const;
 };
-#endif
+#endif //Particle_HPP

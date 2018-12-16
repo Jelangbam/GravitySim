@@ -1,7 +1,7 @@
-#ifndef FORCES_H
-#define FORCES_H
+#ifndef FORCES_HPP
+#define FORCES_HPP
 #include <array>
-#include "particle.h"
+#include "particle.hpp"
 namespace forces {
     /**
      * Returns the magnitude of the 3 dimensional array
@@ -16,4 +16,4 @@ namespace forces {
 	std::array<double, 3> rsquared(const Particle& a, const Particle& b);
 }
 
-#endif
+#endif //FORCES_HPP
