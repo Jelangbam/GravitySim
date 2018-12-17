@@ -31,7 +31,9 @@ class Simulator {
 		double getTime() const;
 		/**
 		 * Writes current state of simulation to file
+		 * @Param Should we start a new file (clear all current data in file)
 		 */
+		void writeOutput(bool newFile);
 		void writeOutput();
 };
 #endif // SIMULATOR_HPP

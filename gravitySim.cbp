@@ -13,8 +13,12 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-std=c++14" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
+					<Add option="-O2" />
 					<Add option="-s" />
 				</Linker>
 			</Target>
@@ -22,6 +26,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/forces.hpp" />
+		<Unit filename="include/particle.hpp" />
+		<Unit filename="include/point.hpp" />
+		<Unit filename="include/simulator.hpp" />
+		<Unit filename="src/forces.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/particle.cpp" />
+		<Unit filename="src/point.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/simulator.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

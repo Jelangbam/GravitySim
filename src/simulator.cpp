@@ -15,7 +15,6 @@ void Simulator::changeTimestep(const double newTimestep) {
 Simulator::Simulator(const double initTimestep) {
 	timestep = initTimestep;
 	time = 0.0;
-	outputFile.open(FILENAME);
 	// Testing with a particle starting at the origin moving right with mass 1
 	auto a = Particle({1, 0.01, 0.0}, {-0.1, 0.0, 0.0}, 1.0);
 	auto b = Particle({0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, 1.0);
@@ -23,11 +22,6 @@ Simulator::Simulator(const double initTimestep) {
 	particles.push_back(b);
 }
 
-void Simulator::writeOutput() {
-    for(auto i = 0; i < (int) particles.size(); i++) {
-        outputFile << std::to_string(time) << " " << std::to_string(i) << " " << particles[i].printData() << "\n";
-    }
-}
 void Simulator::next() {
 	//TODO: multithread this calculation
 	//pre force calculation update
@@ -52,6 +46,7 @@ void Simulator::next() {
     for(int i = 0; i < (int) particles.size(); i++) {
 		particles[i].update2(timestep, forces[i]);
 	}
+	time += timestep;
 }
 
 double Simulator::getTime() const {
@@ -59,4 +54,18 @@ double Simulator::getTime() const {
 }
 std::vector<Particle> Simulator::getState() const {
 	return particles;
+}
+
+void Simulator::writeOutput(bool newFile) {
+    newFile ? outputFile.open(FILENAME): outputFile.open(FILENAME, std::ios_base::app);
+    for(auto i = 0; i < (int) particles.size(); i++) {
+        std::cout << std::to_string(time) << std::endl;
+        outputFile << std::to_string(time) << " " << std::to_string(i) << " " << particles[i].printData() << "\n";
+    }
+    outputFile << std::flush;
+    outputFile.close();
+}
+
+void Simulator::writeOutput() {
+    Simulator::writeOutput(false);
 }
