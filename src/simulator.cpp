@@ -16,8 +16,8 @@ Simulator::Simulator(const double initTimestep) {
 	timestep = initTimestep;
 	time = 0.0;
 	// Testing with a particle starting at the origin moving right with mass 1
-	auto a = Particle({1, 0.01, 0.0}, {-0.1, 0.0, 0.0}, 1.0);
-	auto b = Particle({0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, 1.0);
+	auto a = Particle({0.0, 0.1, 0.0}, {-0.1, 0.0, 0.0}, 1.0);
+	auto b = Particle({0.0, -0.1, 0.0}, {0.1, 0.0, 0.0}, 1.0);
 	particles.push_back(a);
 	particles.push_back(b);
 }
@@ -32,7 +32,6 @@ void Simulator::next() {
 	std::vector<std::array<double, 3>> forces(particles.size());
 	const std::array<double, 3> initialForce = {0.0, 0.0, 0.0};
 	std::fill(forces.begin(), forces.end(), initialForce);
-
 	for(int i = 0; i < (int) particles.size(); i++) {
 		for(int j = i+1; j < (int) particles.size(); j++) {
 			const std::array<double, 3> forceab = forces::rsquared(particles[i], particles[j]);
@@ -59,7 +58,6 @@ std::vector<Particle> Simulator::getState() const {
 void Simulator::writeOutput(bool newFile) {
     newFile ? outputFile.open(FILENAME): outputFile.open(FILENAME, std::ios_base::app);
     for(auto i = 0; i < (int) particles.size(); i++) {
-        std::cout << std::to_string(time) << std::endl;
         outputFile << std::to_string(time) << " " << std::to_string(i) << " " << particles[i].printData() << "\n";
     }
     outputFile << std::flush;
